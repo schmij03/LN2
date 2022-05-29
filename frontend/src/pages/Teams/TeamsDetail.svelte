@@ -74,7 +74,7 @@
     <ul>
         {#each team.players as p}
             <li>
-                <a href={"#/players/" + p}>{p}</a>
+                <a href={"#/players/" + p}>{p} </a>
             </li>
         {/each}
     </ul>
