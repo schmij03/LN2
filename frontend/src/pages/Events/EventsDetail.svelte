@@ -32,7 +32,7 @@
     function getTeams() {
         axios.get("http://localhost:3001/api/teams")
             .then((response) => {
-                players = response.data;
+                teams = response.data;
             });
     }
 
