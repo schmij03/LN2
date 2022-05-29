@@ -29,7 +29,7 @@ export default {
     '/players': Player,
     '/players/:id':PlayerDetails,
     '/create-player': CreatePlayer,
-    '/editplayer':EditPlayer,
+    '/editplayer/:id':EditPlayer,
 
     //Events
     '/events': Event,

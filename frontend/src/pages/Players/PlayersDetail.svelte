@@ -42,4 +42,4 @@
 </div>
 
 <a href="#/players"><button on:click={deletePlayer} type="button" class="btn btn-danger">Delete Player</button></a>
-<a href={"#/players"+id}><button on:click={editPlayer} type="button" class="btn btn-primary">Edit Player</button></a>
+<a href={"#/editplayer/"+id}><button on:click={editPlayer} type="button" class="btn btn-primary">Edit Player</button></a>
