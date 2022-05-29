@@ -13,7 +13,7 @@ import CreateEvent from "./pages/Events/CreateEvent.svelte"
 import Player from "./pages/Players/Players.svelte"
 import PlayerDetails from "./pages/Players/PlayersDetail.svelte"
 import CreatePlayer from "./pages/Players/CreatePlayer.svelte"
-
+import EditPlayer from "./pages/Players/EditPlayer.svelte";
 
 export default {
     // Home
@@ -29,6 +29,7 @@ export default {
     '/players': Player,
     '/players/:id':PlayerDetails,
     '/create-player': CreatePlayer,
+    '/editplayer':EditPlayer,
 
     //Events
     '/events': Event,

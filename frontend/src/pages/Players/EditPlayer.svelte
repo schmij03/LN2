@@ -1,45 +1,27 @@
 <script>
     import axios from "axios";
-
-    export let params = {};
-
-    let id;
-
-    function deletePlayer(){
-        axios.delete("http://localhost:3001/api/players/"+id)
-        
-        alert("Player has been succesfully deleted")
-    }
-
-    function editPlayer(){
-
-    }
-
-    $: {
-        // "Reactive Statement":
-        // This block of is executed whenever the value of a variable in it changes.
-        // See https://svelte.dev/tutorial/reactive-statements
-        id = params.id;
-        getPlayer();
-    }
-
-    let player = {};
-
-    function getPlayer() {
+    let player={}
+function getPlayer() {
         axios.get("http://localhost:3001/api/players/" + id)
             .then((response) => {
                 player = response.data;
             });
     }
+function editPlayer(){
+    getPlayer();
+    team.players.push(player_id);
+        axios.put("http://localhost:3001/api/players/" + player_id, team)
+            .then((response) => {
+                getTeam();
+            });
+}
 </script>
 
-<div class="mb-5">
-    <h1 class="mt-3">Player Name: {player.name}</h1>
-    <p>ID: {id}</p>
-    <p>Gender: {player.gender}</p>
-    <p>Birthdate: {player.birthdate}</p>
-    
-</div>
-
-<a href="#/players"><button on:click={deletePlayer} type="button" class="btn btn-danger">Delete Player</button></a>
-<a href={"#/players"+id}><button on:click={editPlayer} type="button" class="btn btn-primary">Edit Player</button></a>
+<form action="">
+    <label for="Name">Name: <input type="text"  bind:value={player.name} ></label>
+    <label for="Name">Gender: <input type="text" bind:value={player.name} ></label>
+</form>
+<button on:click={editPlayer} type="button" class="btn btn-danger">Ok</button>
+<style>
+   
+</style>

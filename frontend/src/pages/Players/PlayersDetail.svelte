@@ -1,8 +1,8 @@
 <script>
     import axios from "axios";
-
+    import EditPlayer from "./EditPlayer.svelte";
     export let params = {};
-
+    
     let id;
 
     function deletePlayer(){
