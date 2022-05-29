@@ -11,7 +11,6 @@
     getPlayers();
 
   
-
 </script>
 
 <div class="mb-5">

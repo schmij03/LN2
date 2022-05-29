@@ -7,7 +7,7 @@
         players:[]
         
     };
-    
+    let sports=["Fussball", "Eishockey", "Pingpong", "Tennis", "Leichtathletik", "Unihockey", "Baseball", "Volleyball", "Basketball"]
 
     function addTeam() {
         
@@ -35,7 +35,12 @@
         </div>
         <div class="mb-3">
             <label for="" class="form-label">Sportart</label>
-            <input class="form-control" type="text" bind:value={team.sportart} />
+            <select class="form-select" bind:value={team.sportart} id="team">
+                {#each sports as t}
+                    <option value={t}>{t}</option>
+                {/each}
+            </select>
+            
         </div>
         
        

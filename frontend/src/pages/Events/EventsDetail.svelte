@@ -37,7 +37,7 @@
     }
 
     function addTeamToEvent() {
-        event.teams.push(team_id);
+        event.teams.push(ObjectID(team_id));
         axios.put("http://localhost:3001/api/events/" + event_id, event)
             .then((response) => {
                 getEvent();

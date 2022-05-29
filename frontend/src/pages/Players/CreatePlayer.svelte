@@ -7,7 +7,7 @@
         birthdate: ""
     };
 
-
+let genderss=["Male", "Female", "Non-binary", "Transgender", "Bigender", "Genderfluid","Agender"]
     function addPlayer() {
         axios
             .post("http://localhost:3001/api/players", player)
@@ -35,11 +35,12 @@
         </div>
         <div class="mb-3">
             <label for="" class="form-label">Gender</label>
-            <input
-                class="form-control"
-                type="text"
-                bind:value={player.gender}
-            />
+            <select class="form-select" bind:value={player.gender} id="team">
+                {#each genderss as t}
+                    <option value={t}>{t}</option>
+                {/each}
+            </select>
+           
         </div>
         <div class="mb-3">
             <label for="" class="form-label">Birthdate</label>

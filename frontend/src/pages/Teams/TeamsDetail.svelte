@@ -61,9 +61,16 @@
     }
 
     function editTeam(){
-
+        
     }
+    let player = {};
 
+    function getPlayer() {
+        axios.get("http://localhost:3001/api/players/" + id)
+            .then((response) => {
+                player = response.data;
+            });
+    }
 
 </script>
 
@@ -93,4 +100,4 @@
    
 </div>
 <a href="#/teams"><button on:click={deleteTeam} type="button" class="btn btn-danger">Delete Team</button></a>
-<a href={"#/events/"+team_id}><button on:click={editTeam} type="button" class="btn btn-primary">Edit Team</button></a>
+<a href={"#/teams/"+team_id}><button on:click={editTeam} type="button" class="btn btn-primary">Edit Team</button></a>
