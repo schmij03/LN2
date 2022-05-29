@@ -79,4 +79,4 @@
     <button class="btn btn-primary mt-2" on:click={addTeamToEvent}>Update Event</button>
 </div>
 <a href="#/events"><button on:click={deleteEvent} type="button" class="btn btn-danger">Delete Event</button></a>
-<a href={"#/events/"+event_id}><button on:click={editEvent} type="button" class="btn btn-primary">Edit Event</button></a>
+<a href={"#/editevent/"+event_id}><button on:click={editEvent} type="button" class="btn btn-primary">Edit Event</button></a>

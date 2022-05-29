@@ -11,9 +11,7 @@
         alert("Player has been succesfully deleted")
     }
 
-    function editPlayer(){
-
-    }
+   
 
     $: {
         // "Reactive Statement":
@@ -42,4 +40,4 @@
 </div>
 
 <a href="#/players"><button on:click={deletePlayer} type="button" class="btn btn-danger">Delete Player</button></a>
-<a href={"#/editplayer/"+id}><button on:click={editPlayer} type="button" class="btn btn-primary">Edit Player</button></a>
+<a href={"#/editplayer/"+id}><button type="button" class="btn btn-primary">Edit Player</button></a>

@@ -4,11 +4,12 @@ import Home from "./pages/Home.svelte";
 import Team from "./pages/Teams/Teams.svelte"
 import TeamDetails from "./pages/Teams/TeamsDetail.svelte"
 import CreateTeam from "./pages/Teams/CreateTeam.svelte"
+import EditTeam from "./pages/Teams/EditTeam.svelte"
 
 import Event from "./pages/Events/Events.svelte"
 import EventDetails from "./pages/Events/EventsDetail.svelte"
 import CreateEvent from "./pages/Events/CreateEvent.svelte"
-
+import EditEvent from "./pages/Events/EditEvent.svelte"
 
 import Player from "./pages/Players/Players.svelte"
 import PlayerDetails from "./pages/Players/PlayersDetail.svelte"
@@ -24,7 +25,8 @@ export default {
     '/teams': Team,
     '/teams/:id': TeamDetails,
     '/create-team': CreateTeam,
-    
+    '/editteam/:id':EditTeam,
+
     // Players
     '/players': Player,
     '/players/:id':PlayerDetails,
@@ -35,4 +37,5 @@ export default {
     '/events': Event,
     '/events/:id' : EventDetails,
     '/create-event': CreateEvent,
+    '/editevent/:id': EditEvent,
 }

@@ -61,7 +61,7 @@
     }
 
     function editTeam(){
-        
+
     }
     let player = {};
 
@@ -99,5 +99,5 @@
     <button class="btn btn-primary mt-2" on:click={addPlayerToTeam}>Update Team</button>
    
 </div>
-<a href="#/teams"><button on:click={deleteTeam} type="button" class="btn btn-danger">Delete Team</button></a>
-<a href={"#/teams/"+team_id}><button on:click={editTeam} type="button" class="btn btn-primary">Edit Team</button></a>
+<a href="#/teams/"><button on:click={deleteTeam} type="button" class="btn btn-danger">Delete Team</button></a>
+<a href={"#/editteam/"+team_id}><button on:click={editTeam} type="button" class="btn btn-primary">Edit Team</button></a>

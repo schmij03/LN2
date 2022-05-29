@@ -379,7 +379,7 @@ app.post('/api/players', async (req, res) => {
 // Update a player
 //--------------------------------------------------------------------------------------------------
 
-app.put('/api/editplayer/:id', async (req, res) => {
+app.put('/api/players/:id', async (req, res) => {
 
     // read the path parameter :id
     let id = req.params.id;
