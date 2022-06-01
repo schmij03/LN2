@@ -14,7 +14,7 @@
 				height="24"
 				class="d-inline-block align-text-top"
 			/>
-			Grümpi Organisator
+			Grümpi Organizer
 		</a>
 		<button
 			class="navbar-toggler"

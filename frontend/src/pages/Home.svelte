@@ -1,5 +1,5 @@
 <div class="my-5" style="text-align: center" />
-<h1 class="mt-12">Ihr Grümpi Organisator</h1>
+<h1 class="mt-12">Grümpi Organizer</h1>
 <br />
 <br />
 <br />
