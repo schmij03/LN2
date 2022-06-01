@@ -28,7 +28,7 @@
             .get("http://localhost:3001/api/teams2/" + team_id)
             .then((response) => {
                 team = response.data;
-                console.log(team);
+                length = event.teams.length;
             });
     }
 
@@ -43,6 +43,7 @@
             alert("Already Exists");
         } else {
             team.players.push(player_id);
+            length=team.players.length;
             axios
                 .put("http://localhost:3001/api/teams/" + team_id, team)
                 .then((response) => {
@@ -71,10 +72,13 @@
     function deletePlayer() {
         if (!team.players.includes(player_id)) {
             alert("Player not found in team");
-        } else {
+        } else { if((posplayer=team.players.indexOf(player_id))===0){
+            team.players.shift();
+            team.players.push(player_id);
+        }
             length = team.players.length;
             posplayer = team.players.indexOf(player_id);
-            team.players.splice(posplayer, length);
+            team.players.splice(posplayer, length+1);
             axios
                 .put("http://localhost:3001/api/teams/" + team_id, team)
                 .then((response) => {

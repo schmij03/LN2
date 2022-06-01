@@ -29,6 +29,7 @@
             .get("http://localhost:3001/api/events2/" + event_id)
             .then((response) => {
                 event = response.data;
+                length = event.teams.length;
             });
     }
 
@@ -57,10 +58,14 @@
         alert("Event has been succesfully deleted");
     }
     function editEvent() {}
+
     function deleteTeam() {
         if (!event.teams.includes(team_id)) {
             alert("Team not found in event");
-        } else {
+        } else { if((posofteam=event.teams.indexOf(team_id))===0){
+            event.teams.shift();
+            event.teams.push(player_id);
+        }
             length = event.teams.length;
             posofteam = event.teams.indexOf(team_id);
             event.teams.splice(posofteam, length);
