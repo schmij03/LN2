@@ -1,4 +1,4 @@
-A sample REST API for a Music DB
+
 
 ## Get started
 

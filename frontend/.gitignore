@@ -1,4 +1,5 @@
 /node_modules/
+constants-PRIVATE.js
 /public/build/
 
 .DS_Store
