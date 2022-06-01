@@ -51,10 +51,7 @@
         }
     }
 
-    // function alreadyExists(){
-    // alert("User already existing in current Team");
-    // }
-
+    
     function deleteTeam() {
         axios.delete("http://localhost:3001/api/teams/" + team_id);
 
@@ -83,7 +80,7 @@
                 .put("http://localhost:3001/api/teams/" + team_id, team)
                 .then((response) => {
                     getTeam();
-                });
+                });length=0;
             alert("Player has been deleted from Team ");
         }
     }
