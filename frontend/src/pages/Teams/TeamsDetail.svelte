@@ -36,15 +36,15 @@
     }
 
     function addPlayerToTeam() {
-       // if (player_id===team.players._id){
-           // alreadyExists()
-       // } else {
+       if (team.players.includes(player_id)){
+           alert("Already Exists")
+       } else {
            team.players.push(player_id);
         axios.put("http://localhost:3001/api/teams/" + team_id, team)
             .then((response) => {
                 getTeam();
-            });  
-   //     }
+            }); 
+       }
 
        
     }
@@ -81,7 +81,7 @@
     <ul>
         {#each team.players as p}
             <li>
-                <a href={"#/players/" + p}>{p} </a>
+                <a href={"#/players/"+p}>{p} </a>
             </li>
         {/each}
     </ul>
