@@ -94,6 +94,46 @@ app.get('/api/teams/:id', async (req, res) => {
 })
 
 //--------------------------------------------------------------------------------------------------
+//Display player from team with name
+//--------------------------------------------------------------------------------------------------
+app.get('/api/teams2/:id', async (req, res) => {
+
+    // read the path parameter :id
+    let id = req.params.id;
+
+    try {
+        const collection = database.collection('team');
+        const pipeline = [
+            {
+                  $lookup: {
+                    from: 'player', 
+                    localField: 'players', 
+                    foreignField: '_id', 
+                    as: 'pinteam',
+                  },
+                },
+              
+            {
+                $match: {
+                    _id: ObjectId(id),
+                },
+
+            },
+
+        ];
+
+        const resultp = collection.aggregate(pipeline)
+          for await (const doc of resultp){
+              res.send(doc);
+          }
+    } catch (error) {
+        res.status(500).send({ error: error.message });
+    }
+})
+
+
+
+//--------------------------------------------------------------------------------------------------
 // Update a team
 //--------------------------------------------------------------------------------------------------
 app.put('/api/teams/:id', async (req, res) => {
@@ -101,7 +141,9 @@ app.put('/api/teams/:id', async (req, res) => {
     // read the path parameter :id
     let id = req.params.id;
     let team = req.body;
+    team.players = req.body.players.map(ObjectId)
     delete team._id; // delete the _id from the object, because the _id cannot be updated
+    delete team.pinteam;
 
     try {
         const collection = database.collection('team');
@@ -134,8 +176,8 @@ app.post('/api/teams', async (req, res) => {
         var team = {
             name: req.body.name,
             sportart: req.body.sportart,
-            players:req.body.players           
-             };
+            players: req.body.players
+        };
         const result = await collection.insertOne(team);
 
         res.status(201).send({ _id: result.insertedId });
@@ -170,6 +212,45 @@ app.delete('/api/teams/:id', async (req, res) => {
             }
             res.send(responseBody);
         }
+    } catch (error) {
+        res.status(500).send({ error: error.message });
+    }
+})
+
+
+//--------------------------------------------------------------------------------------------------
+//Display team from team with event
+//--------------------------------------------------------------------------------------------------
+app.get('/api/events2/:id', async (req, res) => {
+
+    // read the path parameter :id
+    let id = req.params.id;
+
+    try {
+        const collection = database.collection('event');
+        const pipeline = [
+            {
+                  $lookup: {
+                    from: 'team', 
+                    localField: 'teams', 
+                    foreignField: '_id', 
+                    as: 'pinevent',
+                  },
+                },
+              
+            {
+                $match: {
+                    _id: ObjectId(id),
+                },
+
+            },
+
+        ];
+
+        const resulte = collection.aggregate(pipeline)
+          for await (const doc of resulte){
+              res.send(doc);
+          }
     } catch (error) {
         res.status(500).send({ error: error.message });
     }
@@ -234,7 +315,9 @@ app.put('/api/events/:id', async (req, res) => {
     // read the path parameter :id
     let id = req.params.id;
     let event = req.body;
+    event.teams = req.body.teams.map(ObjectId)
     delete event._id; // delete the _id from the object, because the _id cannot be updated
+    delete event.pinevent;
 
     try {
         const collection = database.collection('event');
@@ -267,7 +350,7 @@ app.post('/api/events', async (req, res) => {
             name: req.body.name,
             eventdate: req.body.eventdate,
             eventinfo: req.body.eventinfo,
-            teams:req.body.teams
+            teams: req.body.teams
         };
         const result = await collection.insertOne(event);
 

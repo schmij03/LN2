@@ -42,6 +42,8 @@
             players = response.data;
         });
     }
+
+    
 </script>
 
 <div class="mb-5">
@@ -63,6 +65,7 @@
                 </select></label
             >
         </div>
+       
     </form>
 
     <a href={"#/teams/" + team_id}

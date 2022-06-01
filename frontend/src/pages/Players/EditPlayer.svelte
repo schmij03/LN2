@@ -56,16 +56,13 @@
                 </select></label
             >
         </div>
-        <div class="mb-3">
-            <label for="" class="form-label">
-                Current Birthdate: {player.birthdate}
-            </label>
-        </div>
+
         <div class="mb-3">
             <label class="form-label"
                 >New Birthdate: <input
                     class="form-control"
                     type="date"
+                    bind:value={player.birthdate}
                 /></label
             >
         </div>

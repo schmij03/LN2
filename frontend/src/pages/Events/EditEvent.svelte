@@ -43,12 +43,7 @@
             >
         </div>
 
-        <div class="mb-3">
-            <label for="" class="form-label"
-                >Aktuelles Durchführungsdatum: {events.eventdate}</label
-            >
-        </div>
-
+    
         <div class="mb-3">
             <label for="Name" class="form-label"
                 >Neues Durchführungsdatum: <input class="form-control"
