@@ -56,7 +56,7 @@
 
         alert("Event has been succesfully deleted");
     }
-function editEvent(){}
+    function editEvent() {}
     function deleteTeam() {
         if (!event.teams.includes(team_id)) {
             alert("Team not found in event");
@@ -76,15 +76,15 @@ function editEvent(){}
 
 <div class="mb-5">
     <a href="#/events"
-    ><button on:click={deleteEvent} type="button" class="btn btn-danger"
-        >Delete Event</button
-    ></a
->
-<a href={"#/editevent/" + event_id}
-    ><button on:click={editEvent} type="button" class="btn btn-primary"
-        >Edit Event</button
-    ></a
->
+        ><button on:click={deleteEvent} type="button" class="btn btn-danger"
+            >Delete Event</button
+        ></a
+    >
+    <a href={"#/editevent/" + event_id}
+        ><button on:click={editEvent} type="button" class="btn btn-primary"
+            >Edit Event</button
+        ></a
+    >
     <h1 class="mt-3">Event: {event.name}</h1>
     <p>Durchführungsdatum: {event.eventdate}</p>
     <p>Eventinfo: {event.eventinfo}</p>
@@ -112,4 +112,3 @@ function editEvent(){}
         >Add Team</button
     >
 </div>
-

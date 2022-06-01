@@ -51,7 +51,6 @@
         }
     }
 
-    
     function deleteTeam() {
         axios.delete("http://localhost:3001/api/teams/" + team_id);
 
@@ -80,29 +79,27 @@
                 .put("http://localhost:3001/api/teams/" + team_id, team)
                 .then((response) => {
                     getTeam();
-                });length=0;
+                });
             alert("Player has been deleted from Team ");
         }
     }
 </script>
 
 <div class="mb-5">
-    
     <a href="#/teams/"
         ><button on:click={deleteTeam} type="button" class="btn btn-danger"
             >Delete Team</button
         ></a
     >
 
-
     <a href={"#/editteam/" + team_id}
         ><button on:click={editTeam} type="button" class="btn btn-primary"
             >Edit Team</button
         ></a
-    ><br/>
-    
+    ><br />
+
     <h1 class="mt-3">Team: {team.name}</h1>
-    
+
     <p>Sportart: {team.sportart}</p>
     <p>Players:</p>
     <ul>
@@ -128,5 +125,3 @@
         >Add Player</button
     >
 </div>
-
-    
