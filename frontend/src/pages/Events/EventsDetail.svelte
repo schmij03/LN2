@@ -64,7 +64,7 @@
             alert("Team not found in event");
         } else { if((posofteam=event.teams.indexOf(team_id))===0){
             event.teams.shift();
-            event.teams.push(player_id);
+            event.teams.push(team_id);
         }
             length = event.teams.length;
             posofteam = event.teams.indexOf(team_id);
